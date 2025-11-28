@@ -1,4 +1,5 @@
-import telebot 
+import telebot
+import time 
 from config import token
 
 from logic import Pokemon
