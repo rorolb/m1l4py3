@@ -18,6 +18,7 @@ class Pokemon:
     def get_img(self):
         pass
     
+
     # Метод для получения имени покемона через API
     def get_name(self):
         url = f'https://pokeapi.co/api/v2/pokemon/{self.pokemon_number}'
@@ -28,7 +29,16 @@ class Pokemon:
         else:
             return "Pikachu"
 
-
+    def get_img(self):
+        url = f'https://pokeapi.co/api/v2/pokemon/{self.pokemon_number}'
+        response = requests.get(url)
+        if response.status_code == 200:
+            data = response.json()
+            # Картинка находится по пути: data['sprites']['front_default']
+            return data['sprites']['front_default']
+        else:
+            # Возвращаем картинку Пикачу по умолчанию
+            return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
     # Метод класса для получения информации
     def info(self):
         return f"Имя твоего покеомона: {self.name}"
