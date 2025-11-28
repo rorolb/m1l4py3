@@ -35,7 +35,7 @@ class Pokemon:
         if response.status_code == 200:
             data = response.json()
             # Картинка находится по пути: data['sprites']['front_default']
-            return data['sprites']['front_default']
+            return data['sprites']['other']['official-artwork']
         else:
             # Возвращаем картинку Пикачу по умолчанию
             return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
