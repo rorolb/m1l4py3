@@ -51,6 +51,10 @@ class Pokemon:
                 Сила: {self.power}"""
 
     def attack(self, enemy):
+        if isinstance(враг, Волшебник): # Проверка на то, что enemy является типом данных Wizard (является экземпляром класса Волшебник)
+            choise = randint(1,5)
+            if choise == 1:
+                return "Покемон-волшебник применил щит в сражении"
         if enemy.hp > self.power:
             enemy.hp -= self.power
             return f"Сражение @{self.pokemon_trainer} с @{enemy.pokemon_trainer}"
